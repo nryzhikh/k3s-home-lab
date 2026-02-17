@@ -1,0 +1,11 @@
+runtime:
+  name: nvidia
+  enabled: true
+
+plugin:
+  image: nvcr.io/nvidia/k8s-device-plugin:v0.17.1
+  tolerations:
+    - key: nvidia.com/gpu
+      operator: Exists
+      effect: NoSchedule
+  priorityClassName: system-node-critical
